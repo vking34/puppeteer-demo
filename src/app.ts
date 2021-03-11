@@ -68,7 +68,6 @@ const getItems = async (urls: string[]) => {
     const browser = await puppeteer.launch();
     for(let i = 0; i < urls.length; i++){
         await getItem(browser, urls[i])
-        
     }
     
     await browser.close();
@@ -83,24 +82,3 @@ const sleep = (ms: number) => {
 }
 
 getItems(itemURLs);
-
-// (async () => {
-//     const browser = await puppeteer.launch();
-//     const page = await browser.newPage();
-
-//     page.on('response', async (resp: HTTPResponse) => {
-//         const url: string = resp.url();
-//         // console.log('url:', url);
-//         if (url.includes("item/get")){
-//             let responseBody = await resp.json();
-//             console.log('url:', url, 'body:', responseBody)
-//         }
-//     })
-  
-//     // let's navigate to the dev.to homepage
-//     await page.setViewport({ width: 1920, height: 1080 });
-//     await page.goto('https://shopee.vn/%C4%90i%E1%BB%87n-tho%E1%BA%A1i-Iphone-5-5s-5se-qu%E1%BB%91c-t%E1%BA%BF-H%C3%A0ng-ph%C3%A2n-ph%E1%BB%91i-ch%C3%ADnh-th%E1%BB%A9c-i.188863065.7215928405');
-    
-//     await page.close()
-//     await browser.close();
-//   })();
